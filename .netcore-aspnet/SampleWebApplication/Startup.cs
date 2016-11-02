@@ -17,6 +17,8 @@ namespace SampleWebApplication
 {
     public class Startup
     {
+        public IConfigurationRoot Configuration { get; }
+        
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -34,7 +36,6 @@ namespace SampleWebApplication
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -55,6 +56,7 @@ namespace SampleWebApplication
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        //Each Use extension method adds middleware to the request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
