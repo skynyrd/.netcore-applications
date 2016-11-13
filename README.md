@@ -1,4 +1,5 @@
 # .netcore-applications
+Warning: These examples can be incompleted. They are not prod ready.
 Spike for using dot net core related technologies.  
 One folder - one sample project.
 
